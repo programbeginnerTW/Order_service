@@ -1,0 +1,27 @@
+{
+    "name": "sdpmlab/order_service",
+    "description": "Demo service in microservice architecture.",
+    "keywords": [
+		"php",
+		"orchestration",
+        "saga"
+	],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SDPM-lab",
+            "homepage": "https://github.com/SDPM-lab"
+        },
+        {
+            "name": "ping-yee",
+            "homepage": "https://github.com/ping-yee"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php" : "^8.0",
+        "sdpmlab/anser-action": "^0.3.3",
+        "sdpmlab/anser": "^0.1.1"
+    }
+}
