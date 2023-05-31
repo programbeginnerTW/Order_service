@@ -32,7 +32,9 @@ pipeline{
     stage('Dependency installation'){
       steps{
         sh '''
-           docker-compose exec order-service sh "composer install"
+           docker exec -it order-service /bin/sh
+           composer install
+           exit
            docker-compose restart
         '''
       }
@@ -41,7 +43,9 @@ pipeline{
       steps{
         sh '''
            sleep 2 
-           docker-compose exec order-service sh "php spark migrate"
+           docker exec -it order-service /bin/sh
+           php spark migrate
+           exit
            docker-compose up -d
         '''
       }
