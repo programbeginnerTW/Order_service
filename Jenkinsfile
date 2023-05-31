@@ -32,7 +32,7 @@ pipeline{
     stage('Dependency installation'){
       steps{
         sh '''
-           docker-compose -T exec order-service composer install
+           docker-compose exec order-service composer install
            docker-compose restart
         '''
       }
