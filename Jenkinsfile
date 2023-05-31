@@ -49,7 +49,7 @@ pipeline{
     stage('Check life'){
         steps{
             sh '''
-              curl localhost:8082/api/v1/order
+              curl http://140.127.74.132:8082/api/v1/order
             '''
         }
     }
