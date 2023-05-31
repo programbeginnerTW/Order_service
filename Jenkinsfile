@@ -46,7 +46,7 @@ pipeline{
         '''
       }
     }
-    stage{
+    stage('Check life'){
         steps{
             sh '''
               curl localhost:8082/api/v1/order
