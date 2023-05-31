@@ -8,8 +8,7 @@ pipeline{
     stage('verify tools'){
      steps{
        sh '''
-        sudo su
-        nigger
+        sudo su -S nigger
         docker info
         docker version
         docker-compose version
