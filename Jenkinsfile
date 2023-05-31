@@ -14,5 +14,44 @@ pipeline{
        '''
      } 
     }
+    stage('Clean all Docker containers'){
+      steps{
+        sh '''
+          docker-compose down -v
+          docker system prune -a --volumes -f
+        '''
+      }
+    }
+    stage('Start Container'){
+      steps{
+        sh '''
+           docker-compose up -d
+        '''
+      }
+    }
+    stage('Dependency installation'){
+      steps{
+        sh '''
+           docker-compose exec order-service composer install
+           docker-compose restart
+        '''
+      }
+    }
+    stage('Database migrate'){
+      steps{
+        sh '''
+           sleep 2 
+           docker-compose exec order-service php spark migrate
+           docker-compose up -d
+        '''
+      }
+    }
+    stage{
+        steps{
+            sh '''
+              curl localhost:8082/api/v1/order
+            '''
+        }
+    }
   }
 }
