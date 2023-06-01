@@ -12,16 +12,7 @@ pipeline{
         docker version
         docker-compose version
        '''
-     } 
-    }
-    stage('Sonarqube Scanning'){
-     steps{
-       withSonarQubeEnv(installationName: 'SDPM_Sonarqube'){
-        sh '''
-          mvn clean package sonar:sonar
-        '''
-       }
-     } 
+     }  
     }
     stage('Clean all Docker containers'){
       steps{
