@@ -1,8 +1,8 @@
 pipeline{
+  def scannerHome = tool 'sonarScanner';
   agent{
     node{
       label 'docker'
-      def scannerHome = tool 'sonarScanner';
     }
   }
   stages{
