@@ -21,6 +21,7 @@ pipeline{
         sh '''
           mvn clean package sonar:sonarr
         '''
+       }
      } 
     }
     stage('Clean all Docker containers'){
