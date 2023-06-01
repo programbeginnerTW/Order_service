@@ -4,9 +4,6 @@ pipeline{
       label 'docker'
     }
   }
-  tools{
-    sonar: 'sonarScanner'
-  }
   stages{
     stage('verify tools'){
      steps{
@@ -19,10 +16,10 @@ pipeline{
     }
     stage('Sonarqube Scanning'){
      steps{
-       def scannerHome = tool 'SonarScanner 4.0';
+       def scannerHome = tool 'sonarScanner';
        withSonarQubeEnv(installationName: 'SDPM_Sonarqube'){
         sh '''
-          ${sonar}/bin/sonar-scanner
+          ${scannerHome}/bin/sonar-scanner
         '''
        }
      } 
