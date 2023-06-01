@@ -1,5 +1,4 @@
 pipeline{
-  def scannerHome = tool 'sonarScanner';
   agent{
     node{
       label 'docker'
