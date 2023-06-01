@@ -18,7 +18,7 @@ pipeline{
      steps{
        withSonarQubeEnv(installationName: 'SDPM_Sonarqube'){
         sh '''
-          mvn clean package sonar:sonarr
+          mvn clean package sonar:sonar
         '''
        }
      } 
