@@ -19,9 +19,8 @@ pipeline{
      steps{
        withSonarQubeEnv(installationName: 'SDPM_Sonarqube'){
         sh '''
-          ${scannerHome}/bin/sonar-scanner
+          mvn clean package sonar:sonarr
         '''
-       }
      } 
     }
     stage('Clean all Docker containers'){
