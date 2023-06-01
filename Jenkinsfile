@@ -2,6 +2,7 @@ pipeline{
   agent{
     node{
       label 'docker'
+      def scannerHome = tool 'sonarScanner';
     }
   }
   stages{
@@ -15,7 +16,6 @@ pipeline{
      } 
     }
     stage('Sonarqube Scanning'){
-      def scannerHome = tool 'sonarScanner';
      steps{
        withSonarQubeEnv(installationName: 'SDPM_Sonarqube'){
         sh '''
