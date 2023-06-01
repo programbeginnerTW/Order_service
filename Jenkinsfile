@@ -15,8 +15,8 @@ pipeline{
      } 
     }
     stage('Sonarqube Scanning'){
+      def scannerHome = tool 'sonarScanner';
      steps{
-       def scannerHome = tool 'sonarScanner';
        withSonarQubeEnv(installationName: 'SDPM_Sonarqube'){
         sh '''
           ${scannerHome}/bin/sonar-scanner
