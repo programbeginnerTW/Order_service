@@ -14,6 +14,16 @@ pipeline{
        '''
      } 
     }
+    stage('Sonarqube Scanning'){
+     steps{
+       def scannerHome = tool 'SonarScanner 4.0';
+       withSonarQubeEnv(installationName: 'SDPM_Sonarqube'){
+        sh '''
+          ${scannerHome}/bin/sonar-scanner
+        '''
+       }
+     } 
+    }
     stage('Clean all Docker containers'){
       steps{
         sh '''
