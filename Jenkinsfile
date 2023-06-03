@@ -19,7 +19,7 @@ pipeline{
         withSonarQubeEnv('SDPM_Sonarqube') {
           
           // Execute SonarQube scanner
-          def scannerHome = tool 'sonarScanner'
+          def scannerHome = tool 'SonarQube_Scanner'
           sh "${scannerHome}/bin/sonar-scanner"
         }
       }
