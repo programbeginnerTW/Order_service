@@ -16,7 +16,7 @@ pipeline{
     }
     stage('sq-scanner'){
       steps{
-        withSonarQubeEnv('SonarQube_Server') {
+        withSonarQubeEnv('SDPM_Sonarqube') {
           sh 'jenkins-plugin-cli --plugins sonar:2.15'
         }
       }
