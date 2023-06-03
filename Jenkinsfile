@@ -17,8 +17,10 @@ pipeline{
     stage('sq-scanner'){
       steps{
         withSonarQubeEnv('SDPM_Sonarqube') {
-//           sh 'jenkins-plugin-cli --plugins sonar:2.15'
-          sh 'sonarScanner'
+          
+          // Execute SonarQube scanner
+          def scannerHome = tool 'SonarQube_Scanner'
+          sh "${scannerHome}/bin/sonar-scanner"
         }
       }
     }
