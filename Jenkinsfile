@@ -18,7 +18,7 @@ pipeline{
       steps{
         withSonarQubeEnv('SDPM_Sonarqube') {
 //           sh 'jenkins-plugin-cli --plugins sonar:2.15'
-          sh 'sonar-scanner'
+          sh 'sonarScanner'
         }
       }
     }
