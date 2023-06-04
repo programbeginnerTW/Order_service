@@ -5,15 +5,15 @@ pipeline{
     }
   }
   stages{
-    stage('verify tools'){
-     steps{
-       sh '''
-        docker info
-        docker version
-        docker-compose version
-       '''
-     }  
-    }
+//     stage('verify tools'){
+//      steps{
+//        sh '''
+//         docker info
+//         docker version
+//         docker-compose version
+//        '''
+//      }  
+//     }
     stage('sq-scanner'){
       steps{
         script{
@@ -21,7 +21,7 @@ pipeline{
           
             // Execute SonarQube scanner
             def scannerHome = tool 'SonarQube_Scanner'
-            sh '${scannerHome}/bin/sonar-scanner'
+            sh "${scannerHome}/bin/sonar-scanner"
 
           }
         }
