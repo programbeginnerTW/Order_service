@@ -5,15 +5,15 @@ pipeline{
     }
   }
   stages{
-//     stage('verify tools'){
-//      steps{
-//        sh '''
-//         docker info
-//         docker version
-//         docker-compose version
-//        '''
-//      }  
-//     }
+    stage('verify tools'){
+     steps{
+       sh '''
+        docker info
+        docker version
+        docker-compose version
+       '''
+     }  
+    }
     stage('sq-scanner'){
       steps{
         script{
